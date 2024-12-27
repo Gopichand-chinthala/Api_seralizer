@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .url-box {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin-right: 10px;
+            display: inline-block;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Item List</h1>
+        <div class="mb-3">
+            <!-- relative URLS which will be included to main url -->
+            <div class="url-box">/api/items/create/</div>
+            <a href="/api/items/create/" class="btn btn-primary">Create Item</a>
+            <div class="url-box">/api/items/</div>
+            <a href="/api/items/" class="btn btn-secondary">Itesm API view</a>
+            <div class="url-box">TO DELETE ITEM USE URL "/api/items/id"</div>
+        </div>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>age</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.age }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
